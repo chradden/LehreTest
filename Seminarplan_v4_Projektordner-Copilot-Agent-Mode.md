@@ -44,7 +44,22 @@ Fuer die drei Uebungen rechnen wir mit ca. 8-15 Prompts pro Person. Das passt - 
 
 > Tipp fuer den Dozenten: Kommunizieren Sie das Budget offen: "Ihr habt heute ca. 15 Versuche - das reicht, aber ueberlegt euch eure Auftraege, bevor ihr sie abschickt. Das ist wie im echten Beruf: Je klarer der Auftrag, desto besser das Ergebnis."
 
-### 2.3 Fuer Technik-Affine: Claude Code im Terminal
+**Wichtig: Wenn das Free-Tier-Limit erreicht ist**, kann die zweite Person im Team das Repo pullen und im eigenen Codespace weiterarbeiten (siehe Block 3).
+
+### 2.3 Dateiformate und Tokenkosten
+
+Nicht alle Dateiformate sind gleich effizient fuer KI-Agenten:
+
+| Format | Tokenkosten | KI-Lesbarkeit | Empfehlung |
+|---|---|---|---|
+| .md (Markdown) | Sehr niedrig | Direkt lesbar, kein Overhead | Bevorzugt |
+| .txt | Sehr niedrig | Direkt lesbar | Gut |
+| .docx / .pptx / .xlsx | Hoch | Muss erst konvertiert werden, viel XML-Overhead | Vermeiden |
+| .pdf | Hoch | Schwer zu parsen, oft Layoutrauschen | Vermeiden |
+
+> Faustregel: Im Projektordner bevorzugt mit .md-Dateien arbeiten. Markdown ist fuer die KI am billigsten zu lesen und zu schreiben, rendern auf GitHub automatisch schoen, und lassen sich bei Bedarf spaeter in andere Formate konvertieren. Jedes Token, das in XML-Overhead einer .docx-Datei steckt, fehlt fuer den eigentlichen Inhalt.
+
+### 2.4 Fuer Technik-Affine: Claude Code im Terminal
 
 Studierende, die mehr wollen, koennen Claude Code direkt im Codespace-Terminal installieren. Claude Code ist ein Kommandozeilen-Tool, das - wie CoWork - direkt auf dem Dateisystem arbeitet und dabei gezielt Claude-Modelle nutzt.
 
@@ -59,7 +74,7 @@ Das ist ein optionales Angebot fuer die Neugierigen - der Hauptweg fuer alle ble
 
 ## 3. Das durchgaengige Szenario
 
-Alle Uebungen arbeiten am selben Projekt. Die Zweierteams waehlen zu Beginn:
+Alle Uebungen arbeiten am selben Projekt. Die Zweierteams bearbeiten alle vier Szenarien in einem gemeinsamen Repo:
 
 | Szenario | Kontext |
 |---|---|
@@ -68,161 +83,250 @@ Alle Uebungen arbeiten am selben Projekt. Die Zweierteams waehlen zu Beginn:
 | C | Inklusionsprojekt: Einrichtung beantragt Foerderprogramm. Konzept, Praesentation fuer den Foerdergeber, Finanzplan. |
 | D | Jahresbericht: Beratungsstelle erstellt Jahresbericht fuer Traeger. Bericht, Vorstandspraesentation, Statistik. |
 
+### Repo-Struktur
+
+Jedes 2er-Team eroeffnet ein eigenes GitHub-Repository mit vier Ordnern:
+
+```
+Mein-Projekt/
+  A Streetwork-Projekt/
+  B Suchtpraevention/
+  C Inklusionsprojekt/
+  D Jahresbericht/
+  README.md
+```
+
+Die Teams arbeiten alle Szenarien nacheinander durch: Konzept, Praesentation, Kostentabelle - jeweils als .md-Dateien. Nach jeder fertigen Uebung wird committet und gepusht. Die Ergebnisse sind dann direkt auf GitHub in der Markdown-Ansicht sichtbar und praesentierbar.
+
 ## 4. Seminarverlauf
 
-### Block 1: Einstieg + Demo (40 Min.)
+### Block 1: Einstieg + KI-Standortbestimmung (50 Min.)
 
 | Zeit | Abschnitt |
 |---|---|
-| 0:00-0:10 | Blitzlicht: "Wo nervt Dokumentation am meisten?" |
+| 0:00-0:15 | Abfragen: KI-Nutzung und Entwicklungen 2026 |
 
-- Methode: Blitzlicht-Runde
-- Inhalt: Jede/r antwortet in einem Satz. Dozent sammelt sichtbar an der Tafel. Typische Antworten: Hilfeplaene, Berichte fuer den Traeger, Foerderantraege, Praesentationen. Ueberleitung: "Genau darum geht es heute. Und zwar nicht so, dass ihr einen Text im ChatGPT-Fenster erzeugt und dann rueberkopiert - sondern so, dass die KI direkt in eurem Projektordner arbeitet. Sie liest, was schon da ist, und baut darauf auf."
-- Material: Tafel/Whiteboard
-- Didaktik: Advance Organizer. Der Schmerzpunkt Dokumentation motiviert. Die Ueberleitung macht den entscheidenden Unterschied sofort klar: nicht Copy-Paste, sondern direkte Arbeit auf Dateien.
+- Methode: Moderierte Abfrage im Plenum (Tafel / digitales Board)
+- Inhalt: Zwei Leitfragen:
 
-| Zeit | Abschnitt |
-|---|---|
-| 0:10-0:40 | Live-Demo: Copilot Agent Mode auf dem Projektordner |
+1. "Wie nutzt ihr aktuell KI im Arbeitsalltag, im Alltag?"
+2. "Welche Entwicklungen in der KI seit letztem Semester bzw. in 2026 habt ihr mitbekommen? Was hat euch beeindruckt?"
 
-- Methode: Live-Demonstration am Beamer (Think-Aloud)
-- Inhalt:
+Der Dozent sammelt die Antworten sichtbar und clustert:
+- Alltag: ChatGPT, Copilot, Bilderzeugung, Uebersetzung, ...
+- Arbeitsalltag: Berichte, Recherche, Mails, ...
+- Entwicklungen 2026: Neue Modelle, Agenten, Computer Use, ...
 
-Phase 1 - Erstellen:
+Erwartung/Hoffnung: Nennung von OpenClaw / Clawdbot, Anthropic-Neuigkeiten, NotebookLM-Features. Falls nicht genannt, steuert der Dozent nach: "Kennt jemand Clawdbot? Was hat Anthropic in 2026 veroeffentlicht?"
 
-1. Im Copilot-Chat (Agent Mode): "Erstelle in meinem Ordner /projekt eine Datei konzept.md: Ein Konzeptpapier fuer ein Streetwork-Projekt im Stadtteil Nord. Zielgruppe: Jugendliche 14-18, Traeger: AWO, Budget: 80.000 EUR/Jahr. Gliederung: Ausgangslage, Ziele, Massnahmen, Personal, Zeitplan, Kosten."
-2. Copilot erstellt konzept.md direkt im Ordner. Sichtbar im Dateibaum links.
-3. "Lies das Konzept in /projekt/konzept.md und erstelle daraus /projekt/praesentation.md: Eine Kurzpraesentation (10 Folien-Gliederung) fuer den Stadtrat."
-4. Copilot liest das Konzept, erstellt die Praesentation. Inhalte sind konsistent.
-5. "Lies Konzept und Praesentation und erstelle /projekt/kosten.md: Eine Kostentabelle mit allen im Konzept genannten Positionen."
-6. Der Ordner hat jetzt drei zusammenhaengende Dateien.
+Ueberleitung: "Vier dieser Themen schauen wir uns jetzt kurz genauer an - in Kleingruppen."
 
-Phase 2 - Weiterarbeiten (der Aha-Moment):
-
-1. "Das Budget wurde auf 55.000 EUR gekuerzt. Lies alle drei Dateien in /projekt/ und passe sie entsprechend an. Kuerze Massnahmen, aktualisiere Praesentation und Kostentabelle."
-2. Copilot aendert alle drei Dateien. Der Dozent zeigt den Diff.
-
-Explizit machen:
-
-"Schaut: Ich habe nichts kopiert, nichts hochgeladen. Die KI hat den Ordner gelesen und alle Dateien konsistent geaendert. Genau so funktioniert Claude CoWork auf dem Desktop - und genau das koennt ihr hier kostenlos machen."
-
-- Material: Codespace mit vorbereitetem Repo, Copilot (Dozent: mindestens Free, besser Pro fuer zuverlaessigere Ergebnisse), Beamer, Fallback: Screenrecording der Demo
-- Didaktik: Cognitive Apprenticeship. Think-Aloud macht den Denkprozess beim Formulieren sichtbar. Phase 2 ist der Schluesselmoment - die Studierenden sehen, dass Weiterarbeiten auf bestehenden Dateien funktioniert. Der explizite Vergleich zu ChatGPT-Copy-Paste verankert den Shift.
-
-### Block 2: Hands-on I - Projektordner aufbauen (50 Min.)
+- Material: Tafel/Whiteboard oder digitales Board
+- Didaktik: Advance Organizer. Die Abfrage aktiviert Vorwissen und macht den Wissensstand sichtbar. Die Ueberleitung zu den Kurzpraesentationen schliesst Wissenslücken gezielt.
 
 | Zeit | Abschnitt |
 |---|---|
-| 0:40-0:55 | Setup: Codespace starten + Copilot aktivieren |
+| 0:15-0:30 | Kleingruppen: Kurzpraesentationen vorbereiten |
 
-- Methode: Guided Onboarding + Buddy-System
-- Inhalt: Der Dozent zeigt jeden Schritt live am Beamer:
+- Methode: Gruppenarbeit in 4 Kleingruppen (je 3-5 Personen)
+- Inhalt: Jede Gruppe erhaelt ein Thema und recherchiert 10-15 Minuten (Smartphones, Laptops):
 
-1. Repository-Link oeffnen (QR-Code / Chat)
-2. Gruener Code-Button -> Codespaces -> Create codespace on main
-3. Warten (1-2 Min.) bis VS Code im Browser geladen ist
-4. Copilot-Chat oeffnen: Klick auf das Copilot-Symbol in der Seitenleiste (oder Ctrl+Alt+I)
-5. Agent Mode aktivieren: Im Chat-Dropdown Agent statt Ask oder Edit waehlen
+| Gruppe | Thema | Leitfrage |
+|---|---|---|
+| 1 | Clawdbot (OpenClaw) | Was ist Clawdbot? Was kann er? Wofuer ist er gedacht? |
+| 2 | Anthropic | Wer ist Anthropic? Welche Modelle und Produkte gibt es 2026? Was ist neu? |
+| 3 | Claude Code | Was ist Claude Code? Wie funktioniert es? Wie unterscheidet es sich von ChatGPT? |
+| 4 | NotebookLM (neueste Features) | Was kann NotebookLM aktuell? Welche neuen Features gibt es 2026? |
 
-Buddy-System: Technik-affine Studis helfen Nachbar*innen.
+Hinweis: Keine Folien noetig - 2-3 Minuten freier Vortrag mit Stichpunkten reicht.
 
-Framing: "Links seht ihr euren Projektordner. Rechts den Copilot-Chat. Wenn ihr dem Chat einen Auftrag gebt, erstellt er Dateien direkt in eurem Ordner - ihr seht sie sofort links erscheinen."
-
-Szenariowahl: Jedes Zweierteam waehlt Szenario A, B, C oder D.
-
-- Material: Repository-Link / QR-Code, GitHub-Accounts (vorab angelegt), Szenario-Kaertchen
-- Didaktik: Peer-Instruction durch Buddy-System. Entscheidend: Den Codespace als Projektordner mit eingebauter KI framen - nicht als Programmierumgebung. Die Szenariowahl gibt Ownership.
+- Material: Smartphones/Laptops fuer Recherche, Themenkarten fuer die Gruppen
+- Didaktik: Peer-Teaching. Die Studierenden erschliessen sich aktuelle KI-Entwicklungen selbst und vermitteln sie. Das verankert Wissen besser als ein Dozentenvortrag.
 
 | Zeit | Abschnitt |
 |---|---|
-| 0:55-1:25 | Uebung 1: Konzeptpapier erstellen lassen |
+| 0:30-0:50 | Kurzpraesentationen im Plenum |
 
-- Methode: Scaffolded Practice in Zweierteams
-- Inhalt: Aufgabe: Gebt Copilot (Agent Mode) den Auftrag, ein Konzeptpapier als Markdown-Datei in eurem Projektordner zu erstellen.
+- Methode: 4 Kurzvortraege (je 3-4 Min.) + kurze Rueckfragen
+- Inhalt: Jede Gruppe stellt ihr Thema vor. Dozent ergaenzt bei Bedarf und ordnet ein:
 
-Beispiel-Prompt (auf dem Handout / im Repo):
+- Nach Gruppe 1 (Clawdbot): "Agentic Tools werden immer mehr - die Frage ist: Wie steuern wir sie sinnvoll?"
+- Nach Gruppe 2 (Anthropic): "Anthropic ist der Hersteller hinter Claude - und damit auch hinter Claude Code und CoWork."
+- Nach Gruppe 3 (Claude Code): "Genau so arbeiten wir heute auch - nur mit Copilot Agent Mode, der aehnlich funktioniert."
+- Nach Gruppe 4 (NotebookLM): "NotebookLM zeigt, was passiert, wenn KI auf einer Wissensbasis arbeitet. Unser Projektordner ist im Prinzip dasselbe."
 
-"Erstelle in /projekt/ eine Datei konzept.md: Ein Konzeptpapier fuer [Szenario]. Gliederung: Ausgangslage, Ziele, Zielgruppe, Massnahmen, Personalplan, Zeitplan, Kostenrahmen. Umfang: ca. 2-3 Seiten."
+Ueberleitung: "Jetzt melden wir uns alle bei GitHub an und legen selbst los."
 
-Die Studierenden duerfen den Prompt anpassen und ergaenzen. Je konkreter der Auftrag, desto besser das Ergebnis. Wenn Copilot fragt, ob er die Datei erstellen darf: Accept klicken.
+- Material: Beamer fuer optionale Bildschirmfreigabe
+- Didaktik: Aktivierung und gemeinsame Wissensbasis. Die Dozenten-Kommentare verbinden die Themen mit dem heutigen Seminarinhalt.
 
-Nach dem Erstellen: Datei oeffnen, lesen, stichprobenartig pruefen.
+### Block 2: GitHub-Setup + Grundlagen (35 Min.)
 
-Kurzer Zwischenstopp (3 Min.): 2-3 Teams zeigen ihr Ergebnis am Beamer.
+| Zeit | Abschnitt |
+|---|---|
+| 0:50-1:00 | GitHub-Anmeldung fuer alle |
 
-Dozent: "Gut - ihr habt jetzt eine Datei im Ordner. Gleich zeige ich euch, was passiert, wenn die KI auf dieser Datei weiterarbeitet."
+- Methode: Guided Onboarding am Beamer + Buddy-System
+- Inhalt: Der Dozent zeigt jeden Schritt live:
 
-Budget-Hinweis: Ca. 2-3 Prompts fuer diese Uebung einplanen.
+1. github.com oeffnen -> Sign up
+2. E-Mail, Username, Passwort vergeben
+3. E-Mail-Verifizierung
+4. Copilot ist im Free Tier automatisch enthalten
 
-- Material: Beispiel-Prompt im Repo (vorlagen/beispiel-prompts.md), Szenario-Kaertchen mit Hintergrund-Infos, Copilot Free (Agent Mode)
-- Didaktik: Scaffolding durch Beispiel-Prompt. Die Studierenden sehen die Struktur eines guten Auftrags, koennen aber frei anpassen. Der Zwischenstopp normalisiert unterschiedliche Geschwindigkeiten.
+Buddy-System: Wer schon einen Account hat, hilft Nachbar*innen.
+
+- Material: Beamer, Smartphones/Laptops
+- Didaktik: Alle auf denselben Stand bringen. Kein Studierender bleibt zurueck.
+
+| Zeit | Abschnitt |
+|---|---|
+| 1:00-1:10 | Kurzinfo: Dateiformate und Tokenkosten |
+
+- Methode: Kurzimpuls (10 Min.)
+- Inhalt: Warum arbeiten wir mit .md-Dateien?
+
+| Format | Tokenkosten | KI-Lesbarkeit | Empfehlung |
+|---|---|---|---|
+| .md (Markdown) | Sehr niedrig | Direkt lesbar | Bevorzugt |
+| .txt | Sehr niedrig | Direkt lesbar | Gut |
+| .docx / .pptx | Hoch | Viel XML-Overhead | Vermeiden |
+| .pdf | Hoch | Schwer zu parsen | Vermeiden |
+
+Faustregel: "Jedes Token, das in XML-Overhead einer .docx-Datei steckt, fehlt fuer den eigentlichen Inhalt. Markdown ist fuer die KI am billigsten - und rendert auf GitHub automatisch schoen."
+
+Kurze Live-Demo: Eine .md-Datei auf GitHub oeffnen -> gerenderte Ansicht zeigen.
+
+- Material: Beamer, Beispiel-.md auf GitHub
+- Didaktik: Praktisches Wissen, das sofort anwendbar ist. Begruendet die Entscheidung fuer das Dateiformat im gesamten Seminar.
+
+| Zeit | Abschnitt |
+|---|---|
+| 1:10-1:25 | Live-Demo: Copilot Agent Mode auf dem Projektordner |
+
+- Methode: Live-Demonstration am Beamer (Think-Aloud, gekuerzt)
+- Inhalt: Der Dozent zeigt den Kernworkflow kompakt:
+
+1. Codespace oeffnen, Agent Mode aktivieren
+2. "Erstelle konzept.md: Streetwork-Projekt, Budget 80.000 EUR..." -> Datei entsteht im Ordner
+3. "Lies konzept.md und erstelle praesentation.md" -> KI liest und baut darauf auf
+4. "Budget auf 55.000 EUR gekuerzt - passe alle Dateien an" -> KI aendert konsistent
+
+Explizit machen: "Nichts kopiert, nichts hochgeladen. Die KI arbeitet direkt auf dem Projektordner. Das macht ihr jetzt gleich selbst."
+
+- Material: Codespace mit vorbereitetem Repo, Beamer, Fallback: Screenrecording
+- Didaktik: Cognitive Apprenticeship. Kompakte Demo fokussiert auf den Aha-Moment: KI arbeitet auf bestehenden Dateien weiter.
 
 ### Pause (15 Min.)
 
-### Block 3: Hands-on II - Ableiten + Weiterarbeiten (55 Min.)
+### Block 3: Hands-on - Repo aufbauen + Szenarien erarbeiten (70 Min.)
 
 | Zeit | Abschnitt |
 |---|---|
-| 1:40-2:10 | Uebung 2: Praesentation + Kostentabelle aus dem Konzept ableiten |
+| 1:40-1:55 | Repo eroeffnen, Ordnerstruktur anlegen, Codespace starten |
 
-- Methode: Aufbauende Praxisuebung in Zweierteams
-- Inhalt: Jetzt kommt der entscheidende Schritt - die KI arbeitet auf der vorhandenen Datei weiter:
+- Methode: Guided Onboarding in 2er-Teams
+- Inhalt: Jedes 2er-Team erstellt ein eigenes Repository:
 
-Schritt 1 - Praesentation:
+1. GitHub -> "+" -> New repository -> Name waehlen (z. B. "KI-Projektordner")
+2. README.md anlegen (Haken setzen)
+3. Im Repo: 4 Ordner anlegen (ueber "Add file" -> "Create new file" -> Ordnername + "/" + README.md):
+   - `A Streetwork-Projekt/`
+   - `B Suchtpraevention/`
+   - `C Inklusionsprojekt/`
+   - `D Jahresbericht/`
+4. Codespace starten: Gruener "Code"-Button -> Codespaces -> Create codespace on main
+5. Copilot-Chat oeffnen (Ctrl+Alt+I), Agent Mode aktivieren
 
-"Lies /projekt/konzept.md und erstelle daraus /projekt/praesentation.md: Eine Kurzpraesentation (8-10 Folien als Gliederung mit Stichpunkten) fuer [Stadtrat / Schulleitung / Foerdergeber / Traegervorstand]."
+Framing: "Ihr habt jetzt euren eigenen Projektordner mit vier Szenarien. Die KI arbeitet ab jetzt direkt darin."
 
-Schritt 2 - Kostentabelle:
-
-"Lies /projekt/konzept.md und /projekt/praesentation.md und erstelle /projekt/kosten.md: Eine Kostentabelle im Markdown-Format mit allen genannten Positionen, Einzelpreisen und Gesamtsumme."
-
-Wichtiger Dozenten-Hinweis an die Studierenden:
-
-"Schaut euch an, ob die Praesentation wirklich zum Konzept passt. Stimmen die Zahlen in der Kostentabelle mit dem Konzept ueberein? Das ist eure Qualitaetskontrolle."
-
-Budget-Hinweis: Ca. 3-5 Prompts fuer diese Uebung.
-
-- Material: Konzept aus Uebung 1 (liegt im Ordner), Copilot (Agent Mode), Beispiel-Prompts im Repo
-- Didaktik: Aufbauendes Lernen. Hier wird der Shift erlebbar. Die Studierenden muessen nichts kopieren - sie verweisen einfach auf die Datei, und die KI liest sie. Der Qualitaetscheck schult die kritische Bewertungskompetenz.
+- Material: Beamer, Repository-Anleitung als Handout oder im Chat
+- Didaktik: Ownership durch eigenes Repo. Die Ordnerstruktur macht die vier Szenarien sichtbar und gibt Orientierung.
 
 | Zeit | Abschnitt |
 |---|---|
-| 2:10-2:35 | Uebung 3: Aenderung einarbeiten - der Stresstest |
+| 1:55-2:25 | Uebung 1+2: Konzept, Praesentation, Kosten erstellen |
 
-- Methode: Problembasierte Uebung in Zweierteams
-- Inhalt: Eine realistische Aenderung kommt rein (Dozent verteilt Aenderungs-Kaertchen):
+- Methode: Scaffolded Practice in Zweierteams
+- Inhalt: Die Teams arbeiten alle vier Szenarien durch - pro Szenario:
+
+1. Konzept erstellen: "Erstelle im Ordner 'A Streetwork-Projekt' eine Datei Konzept.md: ..."
+2. Praesentation ableiten: "Lies Konzept.md und erstelle daraus Praesentation.md: 10 Folien-Gliederung fuer den Stadtrat."
+3. Kosten ableiten: "Lies Konzept und Praesentation und erstelle kosten.md: Kostentabelle mit allen Positionen."
+
+Je nach Geschwindigkeit schaffen die Teams 2-4 Szenarien. Qualitaet vor Quantitaet: "Prueft nach jedem Schritt, ob die Dateien inhaltlich zusammenpassen."
+
+Budget-Hinweis: Ca. 8-12 Prompts fuer diese Phase. Auftraege ueberlegt formulieren.
+
+- Material: Beispiel-Prompts im Repo (vorlagen/beispiel-prompts.md), Szenario-Beschreibungen
+- Didaktik: Aufbauendes Lernen. Jedes Szenario wiederholt den Workflow - aber mit neuem Inhalt. Die Wiederholung festigt das Muster: erstellen -> ableiten -> pruefen.
+
+| Zeit | Abschnitt |
+|---|---|
+| 2:25-2:45 | Commit + Push ueben, Markdown-Ansicht auf GitHub |
+
+- Methode: Guided Practice am Beamer + Eigenarbeit
+- Inhalt: Der Dozent zeigt live:
+
+1. Im Codespace links: Source Control (Ctrl+Shift+G)
+2. Alle Aenderungen stagen: "+" neben "Changes"
+3. Commit-Message schreiben (z. B. "Szenario A fertig")
+4. "Commit" klicken, dann "Sync Changes" (= Push)
+5. Auf github.com das Repo oeffnen -> Ordner durchklicken -> Markdown wird gerendert angezeigt
+
+Die Teams committen und pushen ihre bisherigen Ergebnisse. Danach: Auf GitHub das eigene Repo oeffnen und die gerenderte Markdown-Ansicht bewundern.
+
+"Das ist euer Projektordner - sichtbar fuer euch, euer Team, und wenn ihr wollt fuer die ganze Welt. Ohne Word, ohne PowerPoint. Einfach Markdown auf GitHub."
+
+- Material: Beamer, Codespace
+- Didaktik: Versionierung als Grundkompetenz. Commit/Push ist fuer viele neu - die einfache Erklaerung "Speichern und Hochladen" reicht als Einstieg. Die GitHub-Ansicht liefert den Belohnungsmoment.
+
+| Zeit | Abschnitt |
+|---|---|
+| 2:45-3:00 | Free-Tier-Limit erreicht? Pull-Workflow fuer das Team |
+
+- Methode: Erklaerung + Praxisuebung
+- Inhalt: Das kostenlose Tier (50 Requests/Monat) wird wahrscheinlich bei einigen Teams zur Neige gehen. Loesung: Die zweite Person im Team uebernimmt.
+
+Der Dozent zeigt den Workflow:
+
+1. Person A hat committed und gepusht - alle Dateien sind auf GitHub
+2. Person B oeffnet das gleiche Repository auf GitHub (Link teilen oder im eigenen Account forken)
+3. Person B startet einen eigenen Codespace auf dem Repo
+4. Alternativ, falls Person B Collaborator ist: Einfach "Code" -> "Codespaces" -> "Create codespace"
+5. Person B hat jetzt alle Dateien und eigene 50 Requests
+
+So verdoppelt sich das effektive Budget auf 100 Requests pro Team.
+
+> Wichtig: Immer erst committen und pushen, bevor die andere Person uebernimmt. Sonst fehlen die neuesten Dateien.
+
+Falls noch Requests uebrig: Uebung 3 (Aenderung einarbeiten) starten:
 
 - Szenario A: Budget wird von 80.000 EUR auf 55.000 EUR gekuerzt.
 - Szenario B: Statt eines Elternabends soll es eine ganze Projektwoche werden.
 - Szenario C: Der Foerdergeber verlangt zusaetzlich eine Wirkungsmessung.
 - Szenario D: Der Traeger moechte den Bericht zusaetzlich auf Englisch.
 
-Aufgabe: Ein einziger Prompt, der alles aktualisiert:
+"Lies alle Dateien im Ordner [Szenario]. [Aenderung beschreiben]. Passe alle Dokumente entsprechend an."
 
-"Lies alle Dateien in /projekt/. [Die Aenderung beschreiben]. Passe alle drei Dokumente entsprechend an und speichere sie als konzept-v2.md, praesentation-v2.md und kosten-v2.md."
+- Material: Beamer, Aenderungs-Kaertchen
+- Didaktik: Problemloesung statt Frust. Das Limit wird als Teamwork-Moment genutzt. Der Pull-Workflow vermittelt nebenbei eine zentrale Git-Kompetenz.
 
-Reflexionsfrage (auf dem Kaertchen): "Wie lange haettet ihr dafuer ohne KI gebraucht?"
-
-Budget-Hinweis: Ca. 2-4 Prompts fuer diese Uebung.
-
-- Material: Aenderungs-Kaertchen (pro Szenario), Projektordner mit 3 Dateien aus Uebung 1+2, Copilot (Agent Mode)
-- Didaktik: Problembasiertes Lernen. Die Aenderung ist realistisch - Budgetkuerzungen und Scope-Aenderungen sind Alltag. Hier wird der Ordner-Vorteil am deutlichsten: Ein Prompt aendert alle Dateien konsistent. Die Reflexionsfrage macht den Zeitgewinn bewusst.
-
-### Block 4: Reflexion + Ergebnissicherung (35 Min.)
+### Block 4: Reflexion + Ergebnissicherung (25 Min.)
 
 | Zeit | Abschnitt |
 |---|---|
-| 2:35-2:55 | Gallery Walk + Plenumsdiskussion |
+| 3:00-3:15 | Gallery Walk + Plenumsdiskussion |
 
 - Methode: Gallery Walk mit Feedback-Zetteln + Diskussion
 - Inhalt:
 
-Gallery Walk (10 Min.): Die Teams zeigen ihre Projektordner (6 Dateien) am Bildschirm. Alle gehen durch:
+Gallery Walk (8 Min.): Die Teams zeigen ihre Repos auf GitHub (gerenderte Markdown-Ansicht). Alle gehen durch:
 
 - Gruen: Wuerde ich so in der Praxis nutzen.
 - Rot: Hier hat die KI danebengegriffen.
 
-Plenumsdiskussion (10 Min.): Dozent sammelt die Rot-Punkte:
+Plenumsdiskussion (7 Min.): Dozent sammelt die Rot-Punkte:
 
 - Wo waren die Dokumente inhaltlich falsch?
 - Wurden die Aenderungen konsistent ueber alle Dateien uebernommen?
@@ -231,37 +335,11 @@ Plenumsdiskussion (10 Min.): Dozent sammelt die Rot-Punkte:
 "Die KI ist schnell, aber nicht fehlerfrei. Euer Fachwissen bleibt die Qualitaetskontrolle."
 
 - Material: Post-Its in Gruen und Rot, Timer
-- Didaktik: Assessment as Learning. Peer-Feedback auf konkrete Arbeitsergebnisse. Die Rot-Punkte liefern Material fuer die Diskussion ueber Grenzen.
+- Didaktik: Assessment as Learning. Peer-Feedback auf konkrete Arbeitsergebnisse. Die GitHub-Ansicht macht die Ergebnisse teilbar und sichtbar.
 
 | Zeit | Abschnitt |
 |---|---|
-| 2:55-3:10 | Think-Pair-Share: Wo spart mir das Zeit - und wofuer? |
-
-- Methode: Think-Pair-Share
-- Inhalt:
-
-Think (2 Min.): "In welcher Situation meiner Arbeit wuerde mir ein Projektordner-Workflow am meisten helfen?"
-
-Pair (3 Min.): Austausch zu zweit.
-
-Share (10 Min.): Sammlung im Plenum. Dozent clustert:
-
-- Dokumentation: Hilfeplaene, Berichte, Konzepte, Stellungnahmen
-- Kommunikation: Praesentationen, Elternbriefe, Antraege
-- Auswertung: Statistiken, Jahresberichte, Foerdernachweise
-
-Abschlussfrage: "Wenn KI euch 3 Stunden Dokumentation pro Woche abnimmt - was macht ihr mit der gewonnenen Zeit?"
-
-Erwartete Pointe: Mehr Zeit am Menschen.
-
-- Material: ggf. digitales Board
-- Didaktik: Praxistransfer. Die Abschlussfrage verdichtet die Kernbotschaft des Seminars.
-
-### Block 5: Datenschutz + Abschluss (20 Min.)
-
-| Zeit | Abschnitt |
-|---|---|
-| 3:10-3:20 | Impuls: Datenschutz - pragmatische Faustregeln |
+| 3:15-3:25 | Datenschutz-Impuls: pragmatische Faustregeln |
 
 - Methode: Kurzimpuls (10 Min.)
 - Inhalt: Fuenf Faustregeln:
@@ -275,28 +353,53 @@ Erwartete Pointe: Mehr Zeit am Menschen.
 - Material: 2-3 Folien, optional ein Einseiter als Handout
 - Didaktik: Pragmatisch statt juristisch. Postkarten-Regel als leicht merkbare Faustregel.
 
+### Block 5: GitHub Student Account + Abschluss (20 Min.)
+
 | Zeit | Abschnitt |
 |---|---|
-| 3:20-3:45 | Abschluss: One-Minute-Paper + Ausblick |
+| 3:25-3:35 | GitHub Student Developer Pack beantragen |
+
+- Methode: Guided Onboarding am Beamer
+- Inhalt: Der Dozent zeigt den Antragsprozess:
+
+1. education.github.com/pack oeffnen
+2. "Get your pack" klicken
+3. Mit dem soeben erstellten GitHub-Account einloggen
+4. Hochschul-E-Mail-Adresse angeben (oder Immatrikulationsbescheinigung hochladen)
+5. Kurze Begruendung: "Student of Social Work, using GitHub for coursework"
+6. Absenden - Freischaltung dauert meist wenige Tage
+
+Was bringt der Student Account?
+
+- GitHub Pro (kostenlos): Unlimitierte private Repos, mehr Codespace-Stunden
+- Copilot Pro (kostenlos fuer Studierende): 300 statt 50 Premium Requests/Monat
+- Weitere Tools: Domains, Cloud-Credits, Lernressourcen
+
+"Damit habt ihr ab naechster Woche 300 Requests pro Monat - genug fuer das ganze Semester."
+
+- Material: Beamer, education.github.com/pack
+- Didaktik: Nachhaltigkeit. Der Student Account macht den Workflow ueber das Seminar hinaus nutzbar. Die Beantragung im Seminar stellt sicher, dass es wirklich passiert.
+
+| Zeit | Abschnitt |
+|---|---|
+| 3:35-3:45 | Abschluss: One-Minute-Paper + Ausblick |
 
 - Methode: One-Minute-Paper + Kurzvortrag + Blitzlicht
 - Inhalt:
 
-One-Minute-Paper (5 Min.):
+One-Minute-Paper (3 Min.):
 
 1. Was war meine wichtigste Erkenntnis heute?
 2. Welches Dokument werde ich als naechstes mit KI erstellen?
 
-Ausblick (10 Min.):
+Ausblick (5 Min.):
 
 - Fuer die Abschlussarbeit: Gliederung, Expose, Literatur-Uebersichten - alles im Projektordner
-- Kostenlose Tools: GitHub Codespaces + Copilot Free (reicht fuer Studium)
-- Upgrade-Optionen: Copilot Pro (10 USD/Monat, 300 Requests), Claude Pro (20 USD/Monat fuer Claude Code), 30-Tage-Testphasen
+- Upgrade-Optionen: Claude Pro (20 USD/Monat fuer Claude Code), 30-Tage-Testphasen
 - Fuer Technik-Affine: Claude Code im Terminal als Einstieg in professionelles agentic working
 - Ressourcen: Anthropic Academy, Claude-Doku, GitHub Skills
-- Ueberleitung: Von individueller KI-Assistenz zu organisationalen Arbeitsstrukturen
 
-Abschluss-Blitzlicht (5 Min.):
+Abschluss-Blitzlicht (2 Min.):
 
 "Was veraendert sich, wenn die KI nicht nur einzelne Texte schreibt, sondern auf eurem ganzen Projektordner weiterarbeitet?"
 
@@ -307,19 +410,23 @@ Abschluss-Blitzlicht (5 Min.):
 
 | Zeit | Inhalt | Methode | Sozialform |
 |---|---|---|---|
-| 0:00-0:10 | Blitzlicht: Dokumentation | Blitzlicht | Plenum |
-| 0:10-0:40 | Demo: Copilot Agent Mode | Live-Demo | Plenum |
-| 0:40-0:55 | Setup + Szenariowahl | Guided Onboarding | Einzeln + Buddies |
-| 0:55-1:25 | Uebung 1: Konzept erstellen | Scaffolded Practice | Zweierteams |
+| 0:00-0:15 | Abfragen: KI-Nutzung + Entwicklungen 2026 | Moderierte Abfrage | Plenum |
+| 0:15-0:30 | Kurzpraesentationen vorbereiten | Gruppenarbeit | 4 Kleingruppen |
+| 0:30-0:50 | Kurzpraesentationen: Clawdbot, Anthropic, Claude Code, NotebookLM | Peer-Teaching | Plenum |
+| 0:50-1:00 | GitHub-Anmeldung fuer alle | Guided Onboarding | Einzeln + Buddies |
+| 1:00-1:10 | Dateiformate und Tokenkosten | Kurzimpuls | Plenum |
+| 1:10-1:25 | Live-Demo: Copilot Agent Mode | Live-Demo | Plenum |
 | 1:25-1:40 | Pause |  | - |
-| 1:40-2:10 | Uebung 2: Ableiten (PPTX + XLSX) | Aufbauuebung | Zweierteams |
-| 2:10-2:35 | Uebung 3: Aenderung einarbeiten | Problembasiert | Zweierteams |
-| 2:35-2:55 | Gallery Walk + Diskussion | Peer-Feedback | Alle |
-| 2:55-3:10 | Think-Pair-Share: Transfer | Reflexion | Paare -> Plenum |
-| 3:10-3:20 | Datenschutz-Impuls | Kurzimpuls | Plenum |
-| 3:20-3:45 | Abschluss + Ausblick | OMP + Blitzlicht | Einzeln -> Plenum |
+| 1:40-1:55 | Repo eroeffnen, 4 Ordner, Codespace starten | Guided Onboarding | Zweierteams |
+| 1:55-2:25 | Uebung 1+2: Konzept, Praesentation, Kosten | Scaffolded Practice | Zweierteams |
+| 2:25-2:45 | Commit + Push ueben, Markdown auf GitHub | Guided Practice | Zweierteams |
+| 2:45-3:00 | Pull-Workflow bei Free-Tier-Limit + Uebung 3 | Problembasiert | Zweierteams |
+| 3:00-3:15 | Gallery Walk + Diskussion | Peer-Feedback | Alle |
+| 3:15-3:25 | Datenschutz-Impuls | Kurzimpuls | Plenum |
+| 3:25-3:35 | GitHub Student Developer Pack beantragen | Guided Onboarding | Einzeln |
+| 3:35-3:45 | Abschluss + Ausblick | OMP + Blitzlicht | Einzeln -> Plenum |
 
-Gruen hinterlegt = Hands-on (ca. 120 Min. ~= 53 Prozent). Gesamtes Budget pro Person: ca. 8-15 von 50 Premium Requests.
+Hands-on-Anteil: ca. 120 Min. (~53 Prozent). Gesamtes Budget pro Person: ca. 8-15 von 50 Premium Requests (effektiv 100 pro Team durch Pull-Workflow).
 
 ## 6. Der Projektordner waechst
 
