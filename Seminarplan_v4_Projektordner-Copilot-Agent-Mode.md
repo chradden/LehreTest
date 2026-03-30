@@ -135,7 +135,7 @@ Ueberleitung: "Vier dieser Themen schauen wir uns jetzt kurz genauer an - in Kle
 |---|---|---|
 | 1 | Clawdbot (OpenClaw) | Was ist Clawdbot? Was kann er? Wofuer ist er gedacht? |
 | 2 | Anthropic | Wer ist Anthropic? Welche Modelle und Produkte gibt es 2026? Was ist neu? |
-| 3 | Claude Code | Was ist Claude Code? Wie funktioniert es? Wie unterscheidet es sich von ChatGPT? |
+| 3 | Claude Cowork | Was ist Claude Cowork? Wie funktioniert es? Wie unterscheidet es sich von ChatGPT? |
 | 4 | NotebookLM (neueste Features) | Was kann NotebookLM aktuell? Welche neuen Features gibt es 2026? |
 
 Hinweis: Keine Folien noetig - 2-3 Minuten freier Vortrag mit Stichpunkten reicht.
@@ -152,7 +152,7 @@ Hinweis: Keine Folien noetig - 2-3 Minuten freier Vortrag mit Stichpunkten reich
 
 - Nach Gruppe 1 (Clawdbot): "Agentic Tools werden immer mehr - die Frage ist: Wie steuern wir sie sinnvoll?"
 - Nach Gruppe 2 (Anthropic): "Anthropic ist der Hersteller hinter Claude - und damit auch hinter Claude Code und CoWork."
-- Nach Gruppe 3 (Claude Code): "Genau so arbeiten wir heute auch - nur mit Copilot Agent Mode, der aehnlich funktioniert."
+- Nach Gruppe 3 (Claude CoWork): "Genau so arbeiten wir heute auch - nur mit Copilot Agent Mode, der aehnlich funktioniert."
 - Nach Gruppe 4 (NotebookLM): "NotebookLM zeigt, was passiert, wenn KI auf einer Wissensbasis arbeitet. Unser Projektordner ist im Prinzip dasselbe."
 
 Ueberleitung: "Jetzt melden wir uns alle bei GitHub an und legen selbst los."
