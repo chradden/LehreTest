@@ -150,10 +150,10 @@ Hinweis: Keine Folien noetig - 2-3 Minuten freier Vortrag mit Stichpunkten reich
 - Methode: 4 Kurzvortraege (je 3-4 Min.) + kurze Rueckfragen
 - Inhalt: Jede Gruppe stellt ihr Thema vor. Dozent ergaenzt bei Bedarf und ordnet ein:
 
-- Nach Gruppe 1 (Clawdbot): "Agentic Tools werden immer mehr - die Frage ist: Wie steuern wir sie sinnvoll?"
-- Nach Gruppe 2 (Anthropic): "Anthropic ist der Hersteller hinter Claude - und damit auch hinter Claude Code und CoWork."
-- Nach Gruppe 3 (Claude CoWork): "Genau so arbeiten wir heute auch - nur mit Copilot Agent Mode, der aehnlich funktioniert."
-- Nach Gruppe 4 (NotebookLM): "NotebookLM zeigt, was passiert, wenn KI auf einer Wissensbasis arbeitet. Unser Projektordner ist im Prinzip dasselbe."
+- Nach Gruppe 1 (Clawdbot): "Agentic Tools werden proaktive Assistenten?"
+- Nach Gruppe 2 (Anthropic): "Anthropic ist der Hersteller hinter Claude - Herkunft, Reaktion auf Clawdbot."
+- Nach Gruppe 3 (Claude CoWork): "Agentic Tools erledigen non-coding Arbeit."
+- Nach Gruppe 4 (NotebookLM): "NotebookLM arbeitet auf persönlicher Wissensbasis, aber vorgegeben."
 
 Ueberleitung: "Jetzt melden wir uns alle bei GitHub an und legen selbst los."
 
