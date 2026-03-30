@@ -186,7 +186,23 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 12 - API-Alternativen im Codespace (technisch)
+## Folie 12 - GitHub Student Developer Pack
+
+**So geht's:**
+1. education.github.com/pack oeffnen
+2. "Get your pack" klicken
+3. Hochschul-E-Mail oder Immatrikulationsbescheinigung
+4. Begruendung: "Student of Social Work, using GitHub for coursework"
+
+**Das bekommt ihr:**
+- GitHub Pro (kostenlos)
+- **Copilot Pro: 300 statt 50 Requests/Monat**
+- Mehr Codespace-Stunden
+- Cloud-Credits, Domains, Lernressourcen
+
+---
+
+## Folie 13 - API-Alternativen im Codespace (technisch)
 
 **Wenn Copilot-Limits erreicht sind:**
 
@@ -202,7 +218,7 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 13 - API-Alternativen im Codespace (didaktisch)
+## Folie 14 - API-Alternativen im Codespace (didaktisch)
 
 **Wann ist das sinnvoll?**
 - Wenn Monatskontingente aufgebraucht sind
@@ -218,29 +234,13 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 14 - Datenschutz: 5 Faustregeln
+## Folie 15 - Datenschutz: 5 Faustregeln
 
 1. **Keine echten Namen**, Geburtsdaten, Aktenzeichen eingeben
 2. Immer mit **fiktiven Faellen** oder anonymisierten Daten arbeiten
 3. Im Zweifel **beim Traeger nachfragen**
 4. Free-Tier kann Eingaben fuers Training nutzen - fuer Sensibles: **kostenpflichtige Plaene**
 5. **Postkarten-Regel:** "Wuerde ich das auf einer Postkarte schreiben? Nein? Dann nicht in die KI."
-
----
-
-## Folie 15 - GitHub Student Developer Pack
-
-**So geht's:**
-1. education.github.com/pack oeffnen
-2. "Get your pack" klicken
-3. Hochschul-E-Mail oder Immatrikulationsbescheinigung
-4. Begruendung: "Student of Social Work, using GitHub for coursework"
-
-**Das bekommt ihr:**
-- GitHub Pro (kostenlos)
-- **Copilot Pro: 300 statt 50 Requests/Monat**
-- Mehr Codespace-Stunden
-- Cloud-Credits, Domains, Lernressourcen
 
 ---
 
