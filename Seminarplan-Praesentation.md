@@ -36,6 +36,7 @@ Sammlung an der Tafel / digitalem Board
 
 **Letztes Semester:**
 - Prompt rein -> Ergebnis raus -> Kopieren -> Fertig
+- Vibe-Coding vor allem fuer Apps/Code, meist isoliert im Chat
 - KI hatte keinen Zugriff auf eure Dateien
 
 **Heute:**
@@ -48,7 +49,25 @@ Sammlung an der Tafel / digitalem Board
 
 ---
 
-## Folie 4 - Die Werkzeuge
+## Folie 4 - Was ist eine IDE?
+
+**IDE = Integrated Development Environment**
+
+Eine IDE ist euer Arbeitsraum fuer ein Projekt:
+- Dateibaum + Editor
+- Terminal + Source Control (Git)
+- Extensions fuer Zusatzfunktionen
+
+**Wie funktioniert KI darin?**
+- KI laeuft als Extension in der IDE
+- Nutzt Kontext aus geoeffneten Dateien und Projektordner
+- Agentic Chat kann mehrstufige Aufgaben ausfuehren
+
+Kurz: Nicht nur Chat-Antworten, sondern konkrete Aenderungen direkt im Projekt.
+
+---
+
+## Folie 5 - Die Werkzeuge
 
 | Tool | Funktion |
 |---|---|
@@ -63,7 +82,7 @@ Sammlung an der Tafel / digitalem Board
 
 ---
 
-## Folie 5 - Warum Markdown?
+## Folie 6 - Warum Markdown?
 
 | Format | Tokenkosten | KI-Lesbarkeit | Empfehlung |
 |---|---|---|---|
@@ -78,7 +97,7 @@ Markdown rendert auf GitHub automatisch schoen - ohne Word, ohne PowerPoint.
 
 ---
 
-## Folie 6 - Die vier Szenarien
+## Folie 7 - Die vier Szenarien
 
 Jedes 2er-Team bearbeitet alle vier Szenarien in einem eigenen Repo:
 
@@ -100,7 +119,7 @@ Mein-Projekt/
 
 ---
 
-## Folie 7 - Live-Demo: So funktioniert der Workflow
+## Folie 8 - Live-Demo: So funktioniert der Workflow
 
 **Phase 1 - Erstellen:**
 1. "Erstelle Konzept.md: Streetwork-Projekt, Budget 80.000 EUR..."
@@ -114,7 +133,7 @@ Mein-Projekt/
 
 ---
 
-## Folie 8 - Euer Workflow heute
+## Folie 9 - Euer Workflow heute
 
 ```
 Konzept.md  -->  Praesentation.md  -->  kosten.md
@@ -133,7 +152,7 @@ Konzept.md  -->  Praesentation.md  -->  kosten.md
 
 ---
 
-## Folie 9 - GitHub-Basics: Repo, Commit, Push
+## Folie 10 - GitHub-Basics: Repo, Commit, Push
 
 **Repo erstellen:**
 1. GitHub -> "+" -> New repository
@@ -150,7 +169,7 @@ Ergebnis: Gerenderte Markdown-Ansicht auf GitHub
 
 ---
 
-## Folie 10 - Free-Tier-Limit? Pull-Workflow!
+## Folie 11 - Free-Tier-Limit? Pull-Workflow!
 
 **Problem:** 50 Requests aufgebraucht?
 
@@ -167,7 +186,39 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 11 - Datenschutz: 5 Faustregeln
+## Folie 12 - API-Alternativen im Codespace (technisch)
+
+**Wenn Copilot-Limits erreicht sind:**
+
+- OpenRouter als API-Gateway (ein API-Key, viele Modelle)
+- Modelle im Codespace via CLI, Skript oder Extension nutzbar
+- Beispielrichtung: Qwen/DeepSeek und andere guenstige Modelle
+- Sinnvoll fuer Entwuerfe, Strukturierung, Zusammenfassungen
+
+**Technik-Setup (Kurzfassung):**
+1. API-Key im Anbieter-Dashboard erstellen
+2. Key als Secret/Umgebungsvariable im Codespace setzen
+3. Modell + Kostenlimit im Tool festlegen
+
+---
+
+## Folie 13 - API-Alternativen im Codespace (didaktisch)
+
+**Wann ist das sinnvoll?**
+- Wenn Monatskontingente aufgebraucht sind
+- Wenn ihr viele Iterationen in kurzer Zeit braucht
+
+**Was lernen Studierende dabei?**
+- Modellwahl nach Aufgabe statt "ein Tool fuer alles"
+- Kostenbewusstsein: Token, Rate-Limits, Budgets
+- Reflexion: Ergebnisqualitaet je Modell vergleichen
+
+**Leitplanke:**
+- Keine sensiblen Falldaten senden (Datenschutz vor Geschwindigkeit)
+
+---
+
+## Folie 14 - Datenschutz: 5 Faustregeln
 
 1. **Keine echten Namen**, Geburtsdaten, Aktenzeichen eingeben
 2. Immer mit **fiktiven Faellen** oder anonymisierten Daten arbeiten
@@ -177,7 +228,7 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 12 - GitHub Student Developer Pack
+## Folie 15 - GitHub Student Developer Pack
 
 **So geht's:**
 1. education.github.com/pack oeffnen
@@ -193,27 +244,7 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 13 - Zeitplan auf einen Blick
-
-| Zeit | Was passiert? |
-|---|---|
-| 0:00-0:15 | Abfragen: KI-Nutzung + Entwicklungen 2026 |
-| 0:15-0:50 | Kurzpraesentationen (Clawdbot, Anthropic, Claude CoWork, NotebookLM) |
-| 0:50-1:10 | GitHub-Anmeldung + Dateiformate/Tokenkosten |
-| 1:10-1:25 | Live-Demo: Copilot Agent Mode |
-| 1:25-1:40 | **Pause** |
-| 1:40-1:55 | Repo + 4 Ordner + Codespace starten |
-| 1:55-2:25 | Uebung: Konzept, Praesentation, Kosten erstellen |
-| 2:25-2:45 | Commit + Push ueben |
-| 2:45-3:00 | Pull-Workflow + ggf. Uebung 3 |
-| 3:00-3:15 | Gallery Walk + Diskussion |
-| 3:15-3:25 | Datenschutz-Impuls |
-| 3:25-3:35 | GitHub Student Pack beantragen |
-| 3:35-3:45 | Abschluss + Ausblick |
-
----
-
-## Folie 14 - Was ihr heute mitnehmt
+## Folie 16 - Was ihr heute mitnehmt
 
 - Euer eigenes GitHub-Repo mit Projektdokumenten
 - Den Workflow: Konzept -> Praesentation -> Kosten -> Aenderung
@@ -226,7 +257,7 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 15 - One-Minute-Paper
+## Folie 17 - One-Minute-Paper
 
 **Zwei Fragen zum Mitnehmen:**
 
