@@ -12,9 +12,10 @@ Dozent: Christian Radden | Stand: Maerz 2026
 **Zwei Fragen an euch:**
 
 1. Wie nutzt ihr aktuell KI im Arbeitsalltag, im Alltag?
-2. Welche Entwicklungen in der KI seit letztem Semester bzw. in 2026 habt ihr mitbekommen? Was hat euch beeindruckt?
+2. Welche Entwicklungen in der KI seit letztem Semester bzw. in 2026 habt ihr mitbekommen? 
+3. Was hat euch beeindruckt/besorgt/...?
 
-Sammlung an der Tafel / digitalem Board
+
 
 ---
 
@@ -24,15 +25,27 @@ Sammlung an der Tafel / digitalem Board
 |---|---|---|
 | 1 | Clawdbot (OpenClaw) | Was ist Clawdbot? Was kann er? |
 | 2 | Anthropic | Wer ist Anthropic? Modelle und Produkte 2026? |
-| 3 | Claude CoWork | Was ist Claude CoWork? Unterschied zu ChatGPT? |
+| 3 | Claude CoWork | Was ist Claude CoWork? Unterschied zu Claude Code? |
 | 4 | NotebookLM | Neueste Features 2026? |
 
 - 10-15 Min. Recherche in Kleingruppen
-- Je 3-4 Min. Kurzvortrag im Plenum
+- Je 5-10 Min. Kurzvortrag im Plenum
 
 ---
 
-## Folie 3 - Der Shift: Vom Chatfenster zum Projektordner
+## Folie 3 - KI-Entwicklung
+
+**Schnittmenge der 4 Entwicklungen**
+- Agentische/eigenständige KI
+- eigene Daten / nicht nur Code
+- komplexe Aufgaben möglich
+
+ > KI wird immer nützlicher, auch für Nicht-Coder
+
+
+---
+
+## Folie 4 - Der Shift: Vom Chatfenster zum Projektordner
 
 **Letztes Semester:**
 - Prompt rein -> Ergebnis raus -> Kopieren -> Fertig
@@ -49,17 +62,16 @@ Sammlung an der Tafel / digitalem Board
 
 ---
 
-## Folie 4 - Was ist eine IDE?
+## Folie 5 - IDE statt Terminal
 
 **IDE = Integrated Development Environment**
 
 Eine IDE ist euer Arbeitsraum fuer ein Projekt:
-- Dateibaum + Editor
-- Terminal + Source Control (Git)
-- Extensions fuer Zusatzfunktionen
+- Dateibaum + Editor + Terminal 
+- NEU: Chat
 
 **Wie funktioniert KI darin?**
-- KI laeuft als Extension in der IDE
+- KI laeuft als Chat-Extension in der IDE
 - Nutzt Kontext aus geoeffneten Dateien und Projektordner
 - Agentic Chat kann mehrstufige Aufgaben ausfuehren
 
@@ -67,12 +79,12 @@ Kurz: Nicht nur Chat-Antworten, sondern konkrete Aenderungen direkt im Projekt.
 
 ---
 
-## Folie 5 - Die Werkzeuge
+## Folie 6 - Die Werkzeuge
 
 | Tool | Funktion |
 |---|---|
 | GitHub | Projektordner in der Cloud |
-| Codespace | VS Code im Browser (kostenlos) |
+| Codespace | VS Code (IDE) im Browser |
 | Copilot Agent Mode | KI-Assistenz direkt auf den Dateien |
 | Markdown (.md) | Bevorzugtes Dateiformat |
 
@@ -82,7 +94,7 @@ Kurz: Nicht nur Chat-Antworten, sondern konkrete Aenderungen direkt im Projekt.
 
 ---
 
-## Folie 6 - Warum Markdown?
+## Folie 7 - Warum Markdown?
 
 | Format | Tokenkosten | KI-Lesbarkeit | Empfehlung |
 |---|---|---|---|
@@ -97,58 +109,37 @@ Markdown rendert auf GitHub automatisch schoen - ohne Word, ohne PowerPoint.
 
 ---
 
-## Folie 7 - Die vier Szenarien
+## Folie 8 - Die vier Szenarien
 
-Jedes 2er-Team bearbeitet alle vier Szenarien in einem eigenen Repo:
+Jedes 2er-Team bearbeitet alle drei Szenarien in einem eigenen Repo:
 
 | Szenario | Kontext |
 |---|---|
 | A | Streetwork-Projekt (Budget 80.000 EUR, Stadtrat) |
 | B | Suchtpraevention (Elternabend Mediensucht, Schultraeger) |
 | C | Inklusionsprojekt (Foerderprogramm, Foerdergeber) |
-| D | Jahresbericht (Beratungsstelle, Traegervorstand) |
 
 ```
 Mein-Projekt/
   A Streetwork-Projekt/
   B Suchtpraevention/
   C Inklusionsprojekt/
-  D Jahresbericht/
   README.md
 ```
 
 ---
 
-## Folie 8 - Live-Demo: So funktioniert der Workflow
+## Folie 9 - So funktioniert der Workflow
 
-**Phase 1 - Erstellen:**
-1. "Erstelle Konzept.md: Streetwork-Projekt, Budget 80.000 EUR..."
+**Phase 1 - Erstellen:** (gern in ChatGPT o.ä.)
+1. "Erstelle Konzept.md: Streetwork-Projekt, Budget 80.000 EUR..." 
 2. "Lies Konzept.md und erstelle Praesentation.md: 10 Folien fuer den Stadtrat"
 3. "Lies Konzept und Praesentation, erstelle kosten.md"
 
-**Phase 2 - Weiterarbeiten (der Aha-Moment):**
+**Phase 2 - Weiterarbeiten in der IDE (der Aha-Moment):**
 4. "Budget auf 55.000 EUR gekuerzt - passe alle Dateien an"
 
 > Nichts kopiert, nichts hochgeladen. Die KI liest den Ordner und aendert alles konsistent.
-
----
-
-## Folie 9 - Euer Workflow heute
-
-```
-Konzept.md  -->  Praesentation.md  -->  kosten.md
-     \                |                    /
-      \               |                   /
-       v              v                  v
-    Aenderung einarbeiten -> v2-Dateien
-```
-
-| Phase | KI liest... | KI erstellt... |
-|---|---|---|
-| Konzept | - (Auftrag reicht) | Konzept.md |
-| Praesentation | Konzept.md | Praesentation.md |
-| Kosten | Konzept + Praesentation | kosten.md |
-| Aenderung | Alle 3 Dateien | v2-Versionen |
 
 ---
 
@@ -202,37 +193,6 @@ Effektives Budget: **100 Requests pro Team**
 
 ---
 
-## Folie 13 - API-Alternativen im Codespace (technisch)
-
-**Wenn Copilot-Limits erreicht sind:**
-
-- OpenRouter als API-Gateway (ein API-Key, viele Modelle)
-- Modelle im Codespace via CLI, Skript oder Extension nutzbar
-- Beispielrichtung: Qwen/DeepSeek und andere guenstige Modelle
-- Sinnvoll fuer Entwuerfe, Strukturierung, Zusammenfassungen
-
-**Technik-Setup (Kurzfassung):**
-1. API-Key im Anbieter-Dashboard erstellen
-2. Key als Secret/Umgebungsvariable im Codespace setzen
-3. Modell + Kostenlimit im Tool festlegen
-
----
-
-## Folie 14 - API-Alternativen im Codespace (didaktisch)
-
-**Wann ist das sinnvoll?**
-- Wenn Monatskontingente aufgebraucht sind
-- Wenn ihr viele Iterationen in kurzer Zeit braucht
-
-**Was lernen Studierende dabei?**
-- Modellwahl nach Aufgabe statt "ein Tool fuer alles"
-- Kostenbewusstsein: Token, Rate-Limits, Budgets
-- Reflexion: Ergebnisqualitaet je Modell vergleichen
-
-**Leitplanke:**
-- Keine sensiblen Falldaten senden (Datenschutz vor Geschwindigkeit)
-
----
 
 ## Folie 15 - Datenschutz: 5 Faustregeln
 
